@@ -1,7 +1,9 @@
 FROM xhofe/alist:v2
 # FROM xhofe/alist:latest 失败，报index.html not find错误
 
-RUN chmod -R 777 /opt/alist
+LABEL MAINTAINER="i@nn.ci"
+
+RUN chmod -R 777 /opt/alist/data
 ADD alist.sh /alist.sh
 RUN chmod +x /alist.sh
 
