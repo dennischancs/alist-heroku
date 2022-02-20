@@ -35,3 +35,6 @@ curl -d '{"path":"/","password":"","page_num":1,"page_size":30}' \
 
 Cloudflare访问：https://example.cooluc.com
 
+## 官方链接
+[alist-org/alist-heroku](https://github.com/alist-org/alist-heroku)
+[alist-org/alist-railway: alist on railway](https://github.com/alist-org/alist-railway#/)
