@@ -1,10 +1,11 @@
-# 配置文件目录与 xhofe/alist:latest 保持一置，WORKDIR在`/opt/alist`下 https://github.com/Xhofe/alist/blob/v2/Dockerfile
+# 配置文件目录与 xhofe/alist 保持一置，WORKDIR在`/opt/alist`下 https://github.com/Xhofe/alist/blob/v2/Dockerfile
+mkdir -p /opt/alist/data/
 
 cat >/opt/alist/data/config.json <<EOF
 {
   "address": "0.0.0.0",
   "port": $PORT,
-  "assets": "index",
+  "assets": "$IASSETS",
   "database": {
     "type": "$ADATABASE",
     "user": "$BSQLUSER",
@@ -13,8 +14,7 @@ cat >/opt/alist/data/config.json <<EOF
     "port": $ESQLPORT,
     "name": "$FSQLNAME",
     "table_prefix": "x_",
-    "db_file": "config/data.db",
-    "ssl_mode": "disable"
+    "db_file": "data.db"
   },
   "scheme": {
     "https": false,
@@ -25,7 +25,7 @@ cat >/opt/alist/data/config.json <<EOF
     "expiration": $GEXPIRATION,
     "cleanup_interval": $HCLEANUP_INTERVAL
   },
-  "temp_dir": "config/temp"
+  "temp_dir": "data/temp"
 }
 EOF
 
