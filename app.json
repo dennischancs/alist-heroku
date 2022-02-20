@@ -36,7 +36,7 @@
        "value": "120"
     }
   },
-  "website": "https://hub.docker.com/r/sbwml/alist",
-  "repository": "https://hub.docker.com/r/sbwml/alist",
+  "website": "https://hub.docker.com/r/xhofe/alist",
+  "repository": "https://hub.docker.com/r/xhofe/alist",
   "stack": "container"
 }

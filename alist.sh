@@ -1,7 +1,6 @@
-# 创建配置文件目录
-mkdir -p /alist/config/temp
+# 配置文件目录与 xhofe/alist:latest 保持一置，WORKDIR在`/opt/alist`下 https://github.com/Xhofe/alist/blob/v2/Dockerfile
 
-cat >/alist/config/config.json <<EOF
+cat >/opt/alist/data/config.json <<EOF
 {
   "address": "0.0.0.0",
   "port": $PORT,
@@ -14,7 +13,8 @@ cat >/alist/config/config.json <<EOF
     "port": $ESQLPORT,
     "name": "$FSQLNAME",
     "table_prefix": "x_",
-    "db_file": "/alist/config/data.db"
+    "db_file": "config/data.db",
+    "ssl_mode": "disable"
   },
   "scheme": {
     "https": false,
@@ -25,9 +25,9 @@ cat >/alist/config/config.json <<EOF
     "expiration": $GEXPIRATION,
     "cleanup_interval": $HCLEANUP_INTERVAL
   },
-  "temp_dir": "/alist/config/temp"
+  "temp_dir": "config/temp"
 }
 EOF
 
-cd /alist
-./alist -conf config/config.json
+cd /opt/alist
+./alist -conf data/config.json
